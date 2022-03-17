@@ -1,3 +1,15 @@
+<?php
+$user = "OnTrack";
+$password = "ILoveMotorcycles";
+$database = "OnTrack";
+$table =  "motorcycles";
+
+try{
+    $db = new PDO("mysql:host=localhost;dbname=$database", $user, $password);
+    $result = $db->query("SELECT longitude, latitude FROM motorcycles WHERE uid = '0'; ")
+    ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +24,11 @@
 
     <link rel="stylesheet" href="css/style.css">
 
+    <script>
+        var latitude = <?php echo $row[latitude]; ?>
+        var longitude = <?php echo $row[longitude] ?>
+    </script>
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/script.js" defer></script>
 </head>

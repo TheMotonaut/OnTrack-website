@@ -16,7 +16,7 @@ function generateMap(){
 $(document).ready(function() {
     var map = generateMap();
 
-    L.marker([57.688, 11.97]).addTo(map)
+    L.marker([longitude, latitude]).addTo(map)
         .bindPopup('bajs')
         .openOpenup();
 });
