@@ -26,7 +26,7 @@ try{
 
     <script>
         var latitude = <?php echo $result[latitude]; ?>
-        var longitude = <?php echo $result[longitude] ?>
+        var longitude = <?php echo $result[longitude]; ?>
     </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
