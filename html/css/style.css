@@ -1,0 +1,14 @@
+#map {  height: 400px;
+    width: 60%;
+    margin: auto;
+    border: 5px solid #FFFF00;
+    padding: 10px;
+    padding-top: 100px;
+}
+
+header {
+    width: auto;
+    height: 30px;
+
+    color: #FFFF00;
+}
