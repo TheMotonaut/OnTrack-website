@@ -25,10 +25,10 @@ try{
     <link rel="stylesheet" href="css/style.css">
 
     <script>
-        var latitude = <?php echo $row[latitude]; ?>
-        var longitude = <?php echo $row[longitude] ?>
+        var latitude = <?php echo $result[latitude]; ?>
+        var longitude = <?php echo $result[longitude] ?>
     </script>
-    
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/script.js" defer></script>
 </head>
@@ -45,3 +45,10 @@ try{
     </footer>
 </body>
 </html>
+
+<?php
+} catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+}
+?>
