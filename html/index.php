@@ -12,9 +12,9 @@ if(empty($owner)){
 
 try{
     $db = new PDO("mysql:host=localhost;dbname=OnTrack", $user, $password);
-    $result = $db->query('SELECT * FROM motorcycles WHERE owner =');
+    $result = $db->query("SELECT * FROM motorcycles WHERE owner = $owner");
 
-    foreach($result as $row){
+    foreach($result as $row)
     ?>
 
 
