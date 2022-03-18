@@ -5,8 +5,11 @@ $database = "OnTrack";
 $table =  "motorcycles";
 
 try{
-    $db = new PDO("mysql:host=localhost;dbname=$database", $user, $password);
-    $result = $db->query("SELECT longitude, latitude FROM motorcycles WHERE uid = '0'; ")
+    $db = new PDO("mysql:host=localhost;dbname=OnTrack", $user, $password);
+    $result = $db->query('SELECT * FROM motorcycles');
+
+    foreach($result as $row){
+	echo $row['latitude'];
     ?>
 
 
@@ -25,8 +28,9 @@ try{
     <link rel="stylesheet" href="css/style.css">
 
     <script>
-        var latitude = <?php echo $result[latitude]; ?>
-        var longitude = <?php echo $result[longitude]; ?>
+        var latitude = <?php echo $row['latitude']; ?>;
+	var longitude = <?php echo $row['longitude']; ?>;
+
     </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -47,6 +51,7 @@ try{
 </html>
 
 <?php
+     }
 } catch (PDOException $e) {
     print "Error!: " . $e->getMessage() . "<br/>";
     die();
