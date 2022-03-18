@@ -4,12 +4,17 @@ $password = "ILoveMotorcycles";
 $database = "OnTrack";
 $table =  "motorcycles";
 
+$owner = htmlspecialchars($_GET["owner"]);
+
+if(empty($owner)){
+    $owner = 'Simon';
+}
+
 try{
     $db = new PDO("mysql:host=localhost;dbname=OnTrack", $user, $password);
-    $result = $db->query('SELECT * FROM motorcycles');
+    $result = $db->query('SELECT * FROM motorcycles WHERE owner =');
 
     foreach($result as $row){
-	echo $row['latitude'];
     ?>
 
 
@@ -29,29 +34,17 @@ try{
 
     <script>
         var latitude = <?php echo $row['latitude']; ?>;
-	var longitude = <?php echo $row['longitude']; ?>;
+	    var longitude = <?php echo $row['longitude']; ?>;
 
     </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/script.js" defer></script>
 </head>
-<body>
-    <header>
-
-    </header>
-    <nav>
-
-    </nav>
-    <div id="map"></div>
-    <footer>
-
-    </footer>
-</body>
-</html>
 
 <?php
      }
+     include 'body.php';
 } catch (PDOException $e) {
     print "Error!: " . $e->getMessage() . "<br/>";
     die();
