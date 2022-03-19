@@ -24,7 +24,8 @@ $(document).ready(function() {
             data: "owner = " + owner ,
 
             success: function(data) {
-                var result = $.parseJSON(data);
+                var result = data;
+                window.print(result);
                 $.each(result, function(key, value) {
                     L.marker([value['longitude'], value['latitude']]).addTo(map)
                     .bindPopup("Owner: " + owner + "  Motorcycle: " + value['name'])
