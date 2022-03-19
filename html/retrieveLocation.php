@@ -15,7 +15,7 @@ $result = $db->query("SELECT * FROM motorcycles WHERE owner = $_POST['owner']");
 if ($result->count_rows() > 0) {
 
     $result_array = array();
-    while($row = $result->fetch_assoc()) {
+    foreach($result as $row){
         array_push($result_array, $row);
     }
 }
