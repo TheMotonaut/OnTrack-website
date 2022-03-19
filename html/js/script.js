@@ -19,7 +19,7 @@ $(document).ready(function() {
 
     $("button").click(function(){
         $.ajax({
-            url: "../retrieveLocation.php",
+            url: "retrieveLocation.php",
             type: "POST",
             data: "owner = " + owner ,
 
