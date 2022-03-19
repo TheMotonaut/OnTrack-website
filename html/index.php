@@ -21,7 +21,7 @@ try{
         
     <?php
     foreach($result as $row){
-        echo '<script>'
+        echo '<script>';
         echo "var latitude = ".$row['latitude'].";"; 
         echo "var longitude = ".$row['longitude'].";";
         echo '</script>';
