@@ -6,6 +6,7 @@
 
     </nav>
     <div id="map"></div>
+    <button>Klicka mig</button>
     <footer>
 
     </footer>
