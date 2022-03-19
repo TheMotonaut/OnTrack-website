@@ -1,8 +1,5 @@
 <?php
-$user = "OnTrack";
-$password = "ILoveMotorcycles";
-$database = "OnTrack";
-$table =  "motorcycles";
+
 
 $owner = htmlspecialchars($_GET["owner"]);
 

@@ -1,11 +1,14 @@
 <?php
+$user = "OnTrack";
+$password = "ILoveMotorcycles";
+$database = "OnTrack";
+$table =  "motorcycles";
+
 $db = new PDO("mysql:host=localhost;dbname=OnTrack", $user, $password);
 
 
 /* Check connection  */
-if ($db->connect_error) {
-    die("Connection to database failed: " . $conn->connect_error);
-}
+
 
 $result = $db->query("SELECT * FROM motorcycles WHERE owner = $_POST['owner']");
 
