@@ -18,11 +18,13 @@ try{
     <!DOCTYPE html>
     <html>
     <head>
-        <script>
+        
     <?php
     foreach($result as $row){
-        echo "var latitude = ".$row['latitude']; 
-        echo "var longitude = ".$row['longitude'];
+        echo '<script>'
+        echo "var latitude = ".$row['latitude'].";"; 
+        echo "var longitude = ".$row['longitude'].";";
+        echo '</script>';
     }
     include 'head.php';
     ?>
@@ -30,7 +32,7 @@ try{
     <?php
     include 'body.php';
 
-    echo $row['latitude']:
+    echo $row['latitude'];
 
 } catch (PDOException $e) {
     print "Error!: " . $e->getMessage() . "<br/>";
