@@ -12,12 +12,9 @@ $db = new PDO("mysql:host=localhost;dbname=OnTrack", $user, $password);
 
 $result = $db->query("SELECT * FROM motorcycles WHERE owner = $_POST['owner']");
 
-if (mysqli_num_rows($result)> 0) {
-
-    $result_array = array();
-    foreach($result as $row){
-        array_push($result_array, $row);
-    }
+$result_array = array();
+foreach($result as $row){
+    array_push($result_array, $row);
 }
 
 header('Content-type: application/json');
