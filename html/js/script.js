@@ -15,8 +15,22 @@ function generateMap(){
 
 $(document).ready(function() {
     var map = generateMap();
+    var owner = "Simon";
 
-    L.marker([longitude, latitude]).addTo(map)
-        .bindPopup('bajs')
-        .openOpenup();
+    $("button").click(function(){
+        $.ajax({
+            url: "../retrieveLocation.php",
+            type: "POST",
+            data: "owner = " + owner ,
+
+            success: function(data) {
+                var result = $.parseJSON(data);
+                $.each(result, function(key, value) {
+                    L.marker([value['longitude'], value['latitude']]).addTo(map)
+                    .bindPopup("Owner: " + owner + "  Motorcycle: " + value['name'])
+                    .openPopup();   
+                });
+            },
+        });
+    });
 });
