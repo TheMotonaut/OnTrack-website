@@ -13,16 +13,25 @@ if(empty($owner)){
 try{
     $db = new PDO("mysql:host=localhost;dbname=OnTrack", $user, $password);
     $result = $db->query("SELECT * FROM motorcycles WHERE owner = '$owner'");
-
-    foreach($result as $row){
+    
     ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <script>
+    <?php
+    foreach($result as $row){
+        echo "var latitude = ".$row['latitude']; 
+        echo "var longitude = ".$row['longitude'];
+    }
+    include 'head.php';
+    ?>
+    </head>
+    <?php
+    include 'body.php';
 
+    echo $row['latitude']:
 
-
-<?php
-     }
-     include 'head.php';
-     include 'body.php';
 } catch (PDOException $e) {
     print "Error!: " . $e->getMessage() . "<br/>";
     die();
