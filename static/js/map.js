@@ -17,21 +17,21 @@ $(document).ready(function() {
     var map = generateMap();
     var owner = "Simon";
 
-    $("button").click(function(){
-        $.ajax({
-            url: "retrieveLocation.php",
-            type: "POST",
-            data: "owner = " + owner ,
+    var socket = io();
 
-            success: function(data) {
-                var result = data;
-                console.log(result);
-                $.each(result, function(key, value) {
-                    L.marker([value['longitude'], value['latitude']]).addTo(map)
-                    .bindPopup("Owner: " + owner + "  Motorcycle: " + value['name'])
-                    .openPopup();   
-                });
-            },
-        });
+    motorcycleIcon = L.icon({
+        iconUrl: 'https://motonaut.se/static/images/motorcycleicon.svg',
+        iconSize: [30, 30],
+        popupAnchor: [-3, -76]
+    });
+
+    socket.on('location', function(message) {
+        console.log(message);
+
+        data = JSON.parse(message);
+
+        console.log(data);
+
+        L.marker([data.latitude, data.longitude], {icon : motorcycleIcon}).addTo(map);
     });
 });

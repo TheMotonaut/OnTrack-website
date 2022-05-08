@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
-{% block title %}Index{% endblock %}
+{% block title %}
+<title>Map</title>
+{% endblock %}
 {% block head %}
   {{ super() }}
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" 
@@ -10,15 +12,17 @@
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin="">
     </script>
-    <script 
-        src="https://code.jquery.com/jquery-3.6.0.min.js">
-    </script>
-    <script 
-        src="{{ url_for('static', filename='js/script.js') }}">
-    </script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/map.css') }}"/>
 {% endblock %}
+
 {% block content %}
     <div id="map">
-
+            
     </div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('static', filename='js/map.js') }}"></script>
 {% endblock %}
